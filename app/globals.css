@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e8dcc8;
+  --foreground: #3d2817;
+  --accent: #8b6434;
+  --border: #d4c4b0;
+  --card-bg: #f5f1e8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Removed `@theme inline {}` block because some linters/postcss setups
+   don't recognize `@theme`. CSS custom properties are defined in :root above. */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2d2416;
+    --foreground: #e8dcc8;
+    --accent: #c9a961;
+    --border: #4a3a2a;
+    --card-bg: #3d3228;
   }
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, var(--background) 0%, #dcc8a8 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
+  transition: background-color 0.2s, color 0.2s;
+  background-attachment: fixed;
 }
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+button { font-family: var(--font-geist-sans); transition: all 0.2s; }
