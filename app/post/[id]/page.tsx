@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 export default async function PostDetail({ params }: { params: { id: string } | Promise<{ id: string }> }) {
   const { id: idParam } = (await params) as { id: string };
@@ -11,7 +12,7 @@ export default async function PostDetail({ params }: { params: { id: string } | 
   if (error || !data) return notFound();
 
   return (
-    <main className="min-h-screen  dark:from-slate-950 dark:to-slate-900 p-6 md:p-8">
+    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-6 md:p-8">
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <a href="/" className="inline-flex items-center text-amber-700 dark:text-amber-500 hover:opacity-70 mb-6">
@@ -27,10 +28,16 @@ export default async function PostDetail({ params }: { params: { id: string } | 
           ) : null}
           
           {data.created_at ? (
-            <p className="text-sm text-slate-500 dark:text-slate-500 mt-8">
+            <p className="text-sm text-amber-700 dark:text-amber-300 mt-8">
               記録日: {new Date(data.created_at).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           ) : null}
+          
+          <div className="flex gap-3 mt-8 pt-6 border-t border-amber-200 dark:border-amber-800">
+            <Link href={`/post/${data.id}/edit`} className="flex-1 px-4 py-2 bg-amber-900 hover:bg-amber-950 text-white font-medium rounded-lg transition-colors text-center">
+              編集
+            </Link>
+          </div>
         </div>
       </div>
     </main>

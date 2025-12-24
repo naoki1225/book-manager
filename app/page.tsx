@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Post = {
   id: number;
@@ -232,6 +232,13 @@ export default function Home() {
                     {post.created_at ? (
                       <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">{new Date(post.created_at).toLocaleDateString('ja-JP')}</p>
                     ) : null}
+                    
+                    <div className="flex gap-3 mt-4 pt-3">
+                      <Link href={`/post/${post.id}`} className="flex-1 px-3 py-1 bg-amber-900 hover:bg-amber-950 text-white font-medium rounded text-center text-sm transition-colors">
+                        詳細
+                      </Link>
+                    </div>
+
                   </div>
                 </div>
               ))}
