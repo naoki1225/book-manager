@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#fffbeb" rx="120"/>
+  
+  <!-- Book icon -->
+  <g transform="translate(256, 256)">
+    <!-- Book body -->
+    <rect x="-90" y="-120" width="180" height="240" fill="#92400e" rx="8"/>
+    
+    <!-- Book spine highlight -->
+    <rect x="-90" y="-120" width="20" height="240" fill="#b45309" rx="8"/>
+    
+    <!-- Book pages -->
+    <rect x="-80" y="-110" width="160" height="220" fill="#fef3c7" rx="4"/>
+    
+    <!-- Page lines -->
+    <line x1="-60" y1="-70" x2="60" y2="-70" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-60" y1="-40" x2="60" y2="-40" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-60" y1="-10" x2="60" y2="-10" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-60" y1="20" x2="40" y2="20" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-60" y1="50" x2="50" y2="50" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-60" y1="80" x2="30" y2="80" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Bookmark -->
+    <path d="M 40 -120 L 40 -40 L 50 -50 L 60 -40 L 60 -120 Z" fill="#b45309"/>
+  </g>
+</svg>
