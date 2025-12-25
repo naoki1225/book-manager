@@ -94,38 +94,38 @@ export default function PostDetail() {
   const currentStatus = post.reading_status || "read";
 
   return (
-    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-6 md:p-8">
+    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-4 md:p-6">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <a href="/" className="inline-flex items-center text-amber-800 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-300 transition-colors mb-6 font-medium">
-            <span className="mr-2">←</span> 戻る
+        <div className="mb-4">
+          <a href="/" className="inline-flex items-center text-amber-800 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-300 transition-colors text-sm font-medium">
+            <span className="mr-1">←</span> 戻る
           </a>
         </div>
 
-        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-8 shadow-lg">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-amber-950 dark:text-amber-50 mb-4">{post.book_title}</h1>
+        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg">
+          <h1 className="text-2xl md:text-3xl font-serif font-bold text-amber-950 dark:text-amber-50 mb-3">{post.book_title}</h1>
           
           {post.book_author && (
-            <p className="text-lg text-amber-800 dark:text-amber-200 mb-6 flex items-center gap-2">
+            <p className="text-sm text-amber-800 dark:text-amber-200 mb-4 flex items-center gap-1">
               <span>✒️</span>
               <span>{post.book_author}</span>
             </p>
           )}
 
           {/* 現在のステータス表示 */}
-          <div className="mb-6">
+          <div className="mb-4">
             {currentStatus === "read" && (
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-full font-medium">
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-full text-xs font-medium">
                 📚 読んだ
               </span>
             )}
             {currentStatus === "reading" && (
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full font-medium">
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-xs font-medium">
                 📖 読書中
               </span>
             )}
             {currentStatus === "want_to_read" && (
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full font-medium">
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full text-xs font-medium">
                 ⭐ 読みたい
               </span>
             )}
@@ -133,12 +133,12 @@ export default function PostDetail() {
 
           {/* ステータス変更ボタン */}
           {currentStatus === "reading" && (
-            <div className="mb-6 p-4 bg-amber-100 dark:bg-amber-800/30 rounded-lg border-2 border-amber-300 dark:border-amber-700">
-              <p className="text-sm text-amber-900 dark:text-amber-200 mb-3 font-medium">📖 読書中 → 📚 読んだ</p>
+            <div className="mb-4 p-3 bg-amber-100 dark:bg-amber-800/30 rounded-lg border-2 border-amber-300 dark:border-amber-700">
+              <p className="text-xs text-amber-900 dark:text-amber-200 mb-2 font-medium">📖 読書中 → 📚 読んだ</p>
               <button
                 onClick={() => handleStatusChange("read")}
                 disabled={updating}
-                className="w-full px-4 py-2.5 bg-amber-700 hover:bg-amber-800 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+                className="w-full px-3 py-2 bg-amber-700 hover:bg-amber-800 disabled:bg-gray-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
                 {updating ? "変更中..." : "「読んだ」に移動"}
               </button>
@@ -146,19 +146,19 @@ export default function PostDetail() {
           )}
 
           {currentStatus === "want_to_read" && (
-            <div className="mb-6 p-4 bg-amber-100 dark:bg-amber-800/30 rounded-lg border-2 border-amber-300 dark:border-amber-700 space-y-3">
-              <p className="text-sm text-amber-900 dark:text-amber-200 font-medium">⭐ 読みたい → ステータス変更</p>
+            <div className="mb-4 p-3 bg-amber-100 dark:bg-amber-800/30 rounded-lg border-2 border-amber-300 dark:border-amber-700 space-y-2">
+              <p className="text-xs text-amber-900 dark:text-amber-200 font-medium">⭐ 読みたい → ステータス変更</p>
               <button
                 onClick={() => handleStatusChange("reading")}
                 disabled={updating}
-                className="w-full px-4 py-2.5 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+                className="w-full px-3 py-2 bg-amber-600 hover:bg-amber-700 disabled:bg-gray-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
                 {updating ? "変更中..." : "「読書中」に移動"}
               </button>
               <button
                 onClick={() => handleStatusChange("read")}
                 disabled={updating}
-                className="w-full px-4 py-2.5 bg-amber-700 hover:bg-amber-800 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+                className="w-full px-3 py-2 bg-amber-700 hover:bg-amber-800 disabled:bg-gray-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
                 {updating ? "変更中..." : "「読んだ」に移動"}
               </button>
@@ -166,12 +166,12 @@ export default function PostDetail() {
           )}
           
           {post.created_at && (
-            <p className="text-sm text-amber-700 dark:text-amber-300 mt-8">
+            <p className="text-xs text-amber-700 dark:text-amber-300 mt-6">
               記録日: {new Date(post.created_at).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           )}
           
-          <div className="mt-8 pt-6 border-t border-amber-200 dark:border-amber-800">
+          <div className="mt-6 pt-4 border-t border-amber-200 dark:border-amber-800">
             <ShareButton 
               bookTitle={post.book_title} 
               bookAuthor={post.book_author} 
@@ -179,8 +179,8 @@ export default function PostDetail() {
             />
           </div>
           
-          <div className="flex gap-3 mt-6">
-            <Link href={`/post/${post.id}/edit`} className="flex-1 px-4 py-2 bg-amber-800 hover:bg-amber-900 text-white font-medium rounded-lg transition-colors shadow-md text-center">
+          <div className="flex gap-2 mt-4">
+            <Link href={`/post/${post.id}/edit`} className="flex-1 px-3 py-2 bg-amber-800 hover:bg-amber-900 text-white text-sm font-medium rounded-lg transition-colors shadow-md text-center">
               ✏️ 編集
             </Link>
           </div>

@@ -148,34 +148,34 @@ export default function RecommendPage() {
   }
 
   return (
-    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-6 md:p-8">
+    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-4 md:p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-6">
           <button
             onClick={() => router.push('/')}
-            className="mb-4 text-amber-800 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors font-medium flex items-center gap-2"
+            className="mb-3 text-amber-800 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors text-sm font-medium flex items-center gap-1"
           >
             <span>←</span>
             <span>{nickname}録に戻る</span>
           </button>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2">
+          <h1 className="text-2xl md:text-3xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2">
             ✨ あなたへのおすすめ
           </h1>
           {topAuthors.length > 0 && (
-            <p className="text-amber-700 dark:text-amber-400 mt-2">
+            <p className="text-amber-700 dark:text-amber-400 text-xs">
               よく読む著者：{topAuthors.join("、")} の作品を中心に選びました
             </p>
           )}
         </div>
 
         {recommendations.length === 0 ? (
-          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-12 shadow-lg text-center">
-            <p className="text-xl text-amber-800 dark:text-amber-200 mb-4">
+          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-8 shadow-lg text-center">
+            <p className="text-sm text-amber-800 dark:text-amber-200 mb-3">
               おすすめを表示するには、まず本を登録してください
             </p>
             <button
               onClick={() => router.push('/post')}
-              className="px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white rounded-lg font-medium transition-colors shadow-md"
+              className="px-4 py-2 bg-amber-700 hover:bg-amber-800 text-white rounded-lg text-sm font-medium transition-colors shadow-md"
             >
               最初の本を登録する
             </button>

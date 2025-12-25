@@ -139,57 +139,57 @@ export default function StatsPage() {
   const maxMonthlyCount = Math.max(...monthlyStats.map(s => s.count), 1);
 
   return (
-    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-6 md:p-8">
+    <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-4 md:p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-6">
           <button
             onClick={() => router.push('/')}
-            className="mb-4 text-amber-800 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors font-medium flex items-center gap-2"
+            className="mb-3 text-amber-800 dark:text-amber-300 hover:text-amber-600 dark:hover:text-amber-200 transition-colors text-sm font-medium flex items-center gap-1"
           >
             <span>←</span>
             <span>{nickname}録に戻る</span>
           </button>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2">
+          <h1 className="text-2xl md:text-3xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2">
             📊 読書統計
           </h1>
         </div>
 
         {/* サマリーカード */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg">
-            <p className="text-sm text-amber-700 dark:text-amber-300 font-medium mb-2">📚 総読書数</p>
-            <p className="text-4xl font-bold text-amber-900 dark:text-amber-100">{totalBooks}</p>
-            <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">冊</p>
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4 shadow-lg">
+            <p className="text-xs text-amber-700 dark:text-amber-300 font-medium mb-1">📚 総読書数</p>
+            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">{totalBooks}</p>
+            <p className="text-xs text-amber-600 dark:text-amber-400">冊</p>
           </div>
 
-          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg">
-            <p className="text-sm text-amber-700 dark:text-amber-300 font-medium mb-2">🗓️ 今年読んだ本</p>
-            <p className="text-4xl font-bold text-amber-900 dark:text-amber-100">{thisYearBooks}</p>
-            <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">冊</p>
+          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4 shadow-lg">
+            <p className="text-xs text-amber-700 dark:text-amber-300 font-medium mb-1">📅️ 今年読んだ本</p>
+            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">{thisYearBooks}</p>
+            <p className="text-xs text-amber-600 dark:text-amber-400">冊</p>
           </div>
 
-          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg">
-            <p className="text-sm text-amber-700 dark:text-amber-300 font-medium mb-2">📈 月平均</p>
-            <p className="text-4xl font-bold text-amber-900 dark:text-amber-100">
+          <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4 shadow-lg">
+            <p className="text-xs text-amber-700 dark:text-amber-300 font-medium mb-1">📈 月平均</p>
+            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">
               {thisYearBooks > 0 ? (thisYearBooks / (new Date().getMonth() + 1)).toFixed(1) : '0.0'}
             </p>
-            <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">冊/月</p>
+            <p className="text-xs text-amber-600 dark:text-amber-400">冊/月</p>
           </div>
         </div>
 
         {/* 月別グラフ */}
-        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg mb-8">
-          <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100 mb-6">📅 過去6ヶ月の読書数</h2>
-          <div className="space-y-4">
+        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4 shadow-lg mb-6">
+          <h2 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4">📅 過去6ヶ月の読書数</h2>
+          <div className="space-y-3">
             {monthlyStats.map((stat) => (
               <div key={stat.month}>
                 <div className="flex justify-between mb-1">
-                  <span className="text-sm text-amber-800 dark:text-amber-300 font-medium">{stat.month}</span>
-                  <span className="text-sm font-bold text-amber-900 dark:text-amber-100">{stat.count}冊</span>
+                  <span className="text-xs text-amber-800 dark:text-amber-300 font-medium">{stat.month}</span>
+                  <span className="text-xs font-bold text-amber-900 dark:text-amber-100">{stat.count}冊</span>
                 </div>
-                <div className="w-full bg-amber-200 dark:bg-amber-800 rounded-full h-3">
+                <div className="w-full bg-amber-200 dark:bg-amber-800 rounded-full h-2">
                   <div
-                    className="bg-amber-600 dark:bg-amber-500 h-3 rounded-full transition-all duration-500"
+                    className="bg-amber-600 dark:bg-amber-500 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(stat.count / maxMonthlyCount) * 100}%` }}
                   />
                 </div>
@@ -199,27 +199,27 @@ export default function StatsPage() {
         </div>
 
         {/* よく読む著者 */}
-        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-6 shadow-lg">
-          <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100 mb-6">✒️ よく読む著者 Top 5</h2>
+        <div className="bg-white dark:bg-amber-900 border-2 border-amber-300 dark:border-amber-700 rounded-xl p-4 shadow-lg">
+          <h2 className="text-lg font-bold text-amber-900 dark:text-amber-100 mb-4">✒️ よく読む著者 Top 5</h2>
           {topAuthors.length > 0 ? (
-            <div className="space-y-4">
+            <div className="space-y-3">
               {topAuthors.map((author, index) => (
-                <div key={author.author} className="flex items-center gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-700 dark:bg-amber-600 flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-sm">{index + 1}</span>
+                <div key={author.author} className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-700 dark:bg-amber-600 flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-xs">{index + 1}</span>
                   </div>
                   <div className="flex-1">
-                    <p className="font-semibold text-amber-900 dark:text-amber-100">{author.author}</p>
+                    <p className="text-sm font-semibold text-amber-900 dark:text-amber-100">{author.author}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-amber-800 dark:text-amber-200">{author.count}</p>
+                    <p className="text-xl font-bold text-amber-800 dark:text-amber-200">{author.count}</p>
                     <p className="text-xs text-amber-600 dark:text-amber-400">冊</p>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-amber-600 dark:text-amber-400">著者情報がある本を追加してください</p>
+            <p className="text-xs text-amber-600 dark:text-amber-400">著者情報がある本を追加してください</p>
           )}
         </div>
       </div>

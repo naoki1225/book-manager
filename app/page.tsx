@@ -238,11 +238,11 @@ export default function Home() {
     <main className="min-h-screen bg-amber-50 dark:bg-amber-950 p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         {/* ヘッダー */}
-        <div className="mb-10">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-4 tracking-tight">
+        <div className="mb-6">
+          <h1 className="text-2xl md:text-3xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2 tracking-tight">
             {nickname}録
           </h1>
-          <p className="text-amber-700 dark:text-amber-400 text-sm md:text-base mb-6">
+          <p className="text-amber-700 dark:text-amber-400 text-xs mb-4">
             あなたの読書の軌跡を記録する場所
           </p>
           {userId && posts.length > 0 && (
@@ -255,30 +255,30 @@ export default function Home() {
         </div>
         
         {/* ナビゲーション */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-wrap gap-2 mb-6">
           <button 
             onClick={() => router.push('/post')} 
-            className="px-6 py-3 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg font-medium transition-colors shadow-md"
+            className="px-3 py-2 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg text-sm font-medium transition-colors shadow-md"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-1">
               <span>✍️</span>
               新しい投稿
             </span>
           </button>
           <button 
             onClick={() => router.push('/stats')} 
-            className="px-6 py-3 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg font-medium transition-colors shadow-md"
+            className="px-3 py-2 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg text-sm font-medium transition-colors shadow-md"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-1">
               <span>📊</span>
               読書統計
             </span>
           </button>
           <button 
             onClick={() => router.push('/recommend')} 
-            className="px-6 py-3 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg font-medium transition-colors shadow-md"
+            className="px-3 py-2 bg-amber-700 hover:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-700 text-white rounded-lg text-sm font-medium transition-colors shadow-md"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-1">
               <span>✨</span>
               おすすめの本
             </span>
@@ -286,11 +286,11 @@ export default function Home() {
         </div>
 
         {/* 本棚フィルター */}
-        <div className="mb-8">
-          <div className="flex flex-wrap gap-3">
+        <div className="mb-6">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => { setFilterStatus("all"); setCurrentPage(1); }}
-              className={`px-5 py-2.5 rounded-lg font-medium transition-colors shadow-sm ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors shadow-sm ${
                 filterStatus === "all"
                   ? "bg-amber-700 text-white"
                   : "bg-white dark:bg-amber-900 text-amber-900 dark:text-amber-100 border-2 border-amber-300 dark:border-amber-700 hover:bg-amber-100 dark:hover:bg-amber-800"
@@ -300,7 +300,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => { setFilterStatus("read"); setCurrentPage(1); }}
-              className={`px-5 py-2.5 rounded-lg font-medium transition-colors shadow-sm ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors shadow-sm ${
                 filterStatus === "read"
                   ? "bg-amber-700 text-white"
                   : "bg-white dark:bg-amber-900 text-amber-900 dark:text-amber-100 border-2 border-amber-300 dark:border-amber-700 hover:bg-amber-100 dark:hover:bg-amber-800"
@@ -310,7 +310,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => { setFilterStatus("reading"); setCurrentPage(1); }}
-              className={`px-5 py-2.5 rounded-lg font-medium transition-colors shadow-sm ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors shadow-sm ${
                 filterStatus === "reading"
                   ? "bg-amber-700 text-white"
                   : "bg-white dark:bg-amber-900 text-amber-900 dark:text-amber-100 border-2 border-amber-300 dark:border-amber-700 hover:bg-amber-100 dark:hover:bg-amber-800"
@@ -320,7 +320,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => { setFilterStatus("want_to_read"); setCurrentPage(1); }}
-              className={`px-5 py-2.5 rounded-lg font-medium transition-colors shadow-sm ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors shadow-sm ${
                 filterStatus === "want_to_read"
                   ? "bg-amber-700 text-white"
                   : "bg-white dark:bg-amber-900 text-amber-900 dark:text-amber-100 border-2 border-amber-300 dark:border-amber-700 hover:bg-amber-100 dark:hover:bg-amber-800"

@@ -87,15 +87,15 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-amber-50 dark:bg-amber-950 p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white dark:bg-amber-900 rounded-lg shadow-xl p-8 space-y-6 border-2 border-amber-200 dark:border-amber-700">
+        <div className="bg-white dark:bg-amber-900 rounded-lg shadow-xl p-6 space-y-4 border-2 border-amber-200 dark:border-amber-700">
           <div className="text-center">
-            <h1 className="text-4xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-2">ホンキ録</h1>
-            <p className="text-sm text-amber-700 dark:text-amber-300">あなたの読書記録を残そう</p>
+            <h1 className="text-2xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-1">ホンキ録</h1>
+            <p className="text-xs text-amber-700 dark:text-amber-300">あなたの読書記録を残そう</p>
           </div>
 
           {message && (
             <div
-              className={`p-4 rounded-lg text-sm ${
+              className={`p-3 rounded-lg text-xs ${
                 message.includes("エラー")
                   ? "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800"
                   : "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800"
